@@ -1,0 +1,67 @@
+script
+
+# 'script' allows you to run multiline code. You can't put it in 'repeat' or 'always'. That's why we define 'f' function,
+# which is used at the bottom of the file.
+ 
+def f(v):
+  if not v % 5:
+    print("Moved 5 times")
+
+endscript
+
+run print()
+run print("#NOTE: A bunch of code before (if you're reading it from terminal) is just your compiled to Python code.")
+run print("#NOTE: If you didn't open the file yet, please do so to understand everything here.")
+run print("#NOTE: Press the key below in the file to continue tutorial.") 
+
+waitforkey space
+
+run print("'run' command runs a script in Python, well, because it's a Python compiled macro.")
+run print("'main' part of your macro.")
+run print() 
+
+press ctrl+s
+run print("'press' presses a key on your keyboard.")
+wait 2
+
+hold a
+run print("'hold' and 'release' do the thing you think they do. 'wait' just marks the delay.")
+wait 1.5
+release a
+
+write Hello World
+
+run print("'write' types the string using the keyboard.")
+run print()
+
+run print("This part of code is repeated 5 times. You don't need spaces before code in loops but that's more readable.")
+run print("Oh, and you can't put a repeat into a repeat or repeat into 'always'")
+
+setpos 200 200
+repeat 5
+ move 10 0
+ wait 0.5
+ getpos
+end
+
+run print("'getpos' prints the cursor position into console. 'move' moves the cursor by x,y.")
+run print("'setpos' sets the cursor position.")
+
+clickpos
+getpos
+click 100 150
+
+run print("'clickpos' clicks the mouse on its current position. 'click' uses coordinates.")
+run print("'end' command ends the repeat loop. 'always' doesn't need to end.")
+run print()
+run print("Transfer from 'main' to 'always' part of macro.")
+run print("#NOTE: statements with = sign in them run automatically.")
+run print("To stop, press F12.")
+
+v=0
+
+always
+ v+=1
+ move 0 v
+ wait 0.5
+ run f(v)   # here is the error
